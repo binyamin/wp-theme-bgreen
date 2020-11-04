@@ -1,0 +1,551 @@
+/*
+Theme Name: BGreen
+Theme URI: https://github.com/binyamin/wp-theme-bgreen
+Author: Binyamin Green
+Author URI: https://binyam.in/
+Version: 0.0.1
+License: MIT
+Description: My custom wordpress theme
+Tags: clean, minimal, green
+*/
+
+/*
+========
+Contents
+========
+Roughly based on Brad Frost's Atomic Design methodology
+  1. Patterns (Atoms)
+    * Body text
+    * Headings
+    * Links
+    * Code-like (var, code, kbd, pre)
+    * Lists (ul, ol)
+    * Screen-reader-only content
+  2. Elements (Molecules)
+    * Blockquote
+    * Buttons
+    * Chips
+    * Code block
+  3. Components (Organisms)
+    * Navbar (page header)
+    * Post header
+    * Page footer
+    * Form card
+    * Webmentions
+    * Backlinks
+  4. Layouts (Templates)
+    * Base (default)
+    * Home page
+    * Post feed
+  5. Pages (Pages)
+*/
+
+/* #region (1) Patterns */
+
+/* #region Body text */
+
+html {
+  font-size: 112.5%;
+  /* 18px */
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+body {
+  line-height: 1.75;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  color: #000;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+small,
+.text--small {
+  font-size: 0.833rem;
+}
+
+/* #endregion */
+
+/* #region Headings */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 3rem 0 1.38rem;
+  font-weight: 400;
+  line-height: 1.3;
+  font-family: "Crimson Pro", "Times New Roman", Times, serif;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2.488rem;
+}
+
+h2 {
+  font-size: 2.074rem;
+}
+
+h3 {
+  font-size: 1.728rem;
+}
+
+h4 {
+  font-size: 1.44rem;
+}
+
+h5,
+.text--larger {
+  font-size: 1.2rem;
+}
+
+.header-anchor {
+  margin-left: -1ch;
+  margin-right: 4px;
+  text-decoration: none;
+  color: #e1e1e1 !important;
+}
+
+h1:hover .header-anchor,
+h2:hover .header-anchor,
+h3:hover .header-anchor,
+h4:hover .header-anchor,
+h5:hover .header-anchor {
+  color: #444 !important;
+}
+
+/* #endregion */
+
+/* #region Links */
+
+html {
+  scroll-behavior: smooth;
+}
+
+a[href]:not([class*="btn"]) {
+  color: currentColor;
+  text-decoration-color: #44835c;
+  text-decoration-thickness: 2px;
+}
+
+a[href]:not([class*="btn"]):hover {
+  color: #44835c;
+}
+
+a[href]:not([class*="btn"]):focus {
+  outline: 2px solid #44835c;
+  outline-offset: 2px;
+}
+
+a[href]:not([class*="btn"])[rel*="external"]::after {
+  color: #44835c;
+  font-weight: 700;
+}
+/* #endregion */
+
+/* #region Code-like (var, code, kbd, pre) */
+
+var,
+code {
+  font-family: "Source Code Pro", Monaco, Consolas, "Courier New", monospace;
+  font-size: 90%;
+  color: #c92c2c;
+  background-color: #f3f3f6;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+kbd {
+  font-family: "Source Code Pro", Monaco, Consolas, "Courier New", monospace;
+  font-size: 90%;
+  background-color: #f3f3f6;
+  padding: 4px 8px;
+  border-radius: 999px;
+  box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.25);
+}
+
+pre {
+  line-height: normal;
+}
+
+/* #endregion */
+
+/* Lists */
+ul > li p {
+  margin: auto;
+}
+
+/* screen-reader-only content */
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+/* #endregion */
+
+
+/* #region (2) Elements */
+
+/* #region Blockquote */
+
+blockquote {
+  display: inline-block;
+  background-color: #f2f2f2;
+  border-left: 8px solid #44835c;
+  padding: 8px 16px 8px 8px;
+  margin-left: 20px;
+}
+
+blockquote > p {
+  margin: initial;
+}
+
+/* #endregion */
+
+/* #region Buttons */
+
+button,
+a[class*="btn"] {
+  cursor: pointer;
+  border: none;
+  background-color: #44835c;
+  color: white;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+button:hover,
+a[class*="btn"]:hover {
+  color: #080808;
+}
+
+/* #endregion */
+
+/* #region Chips */
+.chip {
+  background-color: #e1e1e1;
+  font-size: 90%;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #444 !important;
+  text-decoration: none;
+}
+
+.chip:hover {
+  background-color: #bed4c6;
+  color: #2c553c !important;
+}
+
+.chip:focus {
+  outline: none !important;
+  box-shadow: inset 0 0 0 1px currentColor;
+}
+/* #endregion */
+
+/* #region Code Block */
+
+pre.wp-code-block {
+  border-radius: 8px;
+}
+
+pre.wp-code-block code {
+  color: inherit;
+  background-color: transparent;
+  padding: 0 8px;
+  border-radius: 0;
+  line-height: normal;
+  display: inline-block;
+}
+
+/* #endregion */
+
+/* #endregion */
+
+
+/* #region (3) Components */
+
+/* #region Navbar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 1.2rem;
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  display: inline-block;
+  margin: 0 12px;
+}
+
+.nav-btn {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-btn {
+    display: block;
+  }
+  .nav-menu {
+    display: none;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    margin-top: 16px;
+  }
+  .nav-wrapper {
+    padding: 4px 8px;
+  }
+  .nav-wrapper:hover .nav-menu,
+  .nav-wrapper:focus-within .nav-menu {
+    display: block;
+  }
+}
+
+.nav-btn {
+  background-color: transparent;
+  margin: 3.5px 0;
+  padding: 3.5px 0;
+}
+
+.nav-btn:hover .nav-btn__bar,
+.nav-btn:focus .nav-btn__bar {
+  background-color: #9c9c9d;
+}
+
+.nav-btn__bar {
+  display: block;
+  background-color: #000;
+  width: 24px;
+  height: 3px;
+  border-radius: 999px;
+}
+
+.nav-btn__bar:nth-of-type(2) {
+  margin: 4px 0;
+}
+
+/* #endregion */
+
+/* #region Post header (any post-type) */
+
+.post__header {
+  margin: 2.5em 0 2em 0;
+}
+
+.post__details {
+  color: #444;
+}
+
+/* #endregion */
+
+/* page footer */
+.page-footer {
+  text-align: center;
+  display: inline-block;
+  margin: 8px auto;
+  border-top: 1px solid #9c9c9d;
+}
+
+/* #region Form card */
+
+.form__input--text {
+  padding: 6px 8px 6px 6px;
+}
+
+.form--card {
+  text-align: center;
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin: 24px 0;
+  background-color: #f3f3f6;
+  border: 2px solid #e1e1e1;
+}
+
+/* #endregion */
+
+/* #region Webmentions */
+
+.wm-title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 8px 0;
+}
+
+.wm-likes,
+.wm-replies {
+  display: inline-block;
+  margin: 0 8px 0 0;
+}
+
+.wm-mentions {
+  margin: 12px 0;
+  padding: 0;
+}
+
+.wm-mention {
+  margin: 36px 0;
+  list-style: none;
+}
+
+.wm-mentioner__img {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  margin: 0 12px 4px 0;
+  float: left;
+}
+
+.wm-mentioner {
+  display: inline-block;
+}
+
+.wm-mention__time {
+  color: #444;
+}
+
+/* #endregion */
+
+/* #region Backlinks */
+.bl__title {
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.bl__note {
+  margin: 0;
+  color: #444;
+  font-style: italic;
+}
+
+.bl__links {
+  margin-top: 0;
+}
+/* #endregion */
+
+/* #endregion */
+
+
+/* #region (4) Layouts */
+
+/* #region Base */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0 24px;
+}
+
+main:not(.default) {
+  flex-grow: 1;
+  width: 66ch;
+  max-width: calc(100% - 48px);
+  /* 100% width with 24px gutters */
+  min-width: 328px;
+  margin: 48px auto 0 auto;
+}
+/* #endregion */
+
+/* #region Home-page */
+main.home {
+  margin-top: 96px;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: min-content auto;
+  column-gap: 24px;
+}
+
+main.home picture {
+  grid-row: 1/3;
+  align-self: center;
+}
+
+main.home img {
+  border-radius: 2px;
+  box-shadow: 2px 4px 6px 1px rgba(0, 0, 0, 0.25);
+}
+
+main.home .home__title {
+  margin: 0;
+  align-self: flex-end;
+}
+
+main.home .home__lead {
+  margin: 0;
+}
+
+main.home .home__desc {
+  grid-column: 1/3;
+  align-self: start;
+}
+
+@media only screen and (max-width: 768px) {
+  main.home {
+    display: flex;
+    flex-direction: column;
+  }
+  main.home .home__title,
+  main.home .home__lead {
+    align-self: center;
+  }
+  main.home .home__desc {
+    text-align: center;
+  }
+}
+
+/* #endregion */
+
+/* #region Post feed (We should make this a General any-post-type feed) */
+
+.posts-title {
+  margin-bottom: 0;
+}
+
+.posts-tag {
+  color: #444;
+}
+
+.posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-item {
+  margin: 1.75em 0;
+}
+
+.post-item__title {
+  font-size: 2.074rem;
+  font-family: "Crimson Pro", "Times New Roman", Times, serif;
+}
+
+.post-item__details {
+  color: #444;
+}
+
+.post-item__desc {
+  margin-top: 8px;
+}
+
+/* #endregion */
+
+/* #endregion */
