@@ -13,4 +13,4 @@ This is mainly a personal project, so I don't expect any contributions. That sai
 
 ## Legal
 
-This project is under [the MIT/X11 license](https://github.com/binyamin/wp-theme-bgreen/license).
+This project is under [the MIT/X11 license](https://github.com/binyamin/wp-theme-bgreen/blob/main/LICENSE).
