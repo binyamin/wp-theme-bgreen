@@ -1,5 +1,11 @@
 # BGreen
 [My website](https://binyam.in) as a wordpress theme.
+## TODO
+- footnotes
+- webmentions
+- add wm to post template
+- posts feed
+- twitter cards
 
 ## Contribute
 
