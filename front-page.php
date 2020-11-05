@@ -1,6 +1,6 @@
 <?php
 /**
- * Home page - equivalent to https://binyam.in/index.html
+ * Front page - equivalent to https://binyam.in/index.html
  */
 ?>
 <?php get_header(); ?>
@@ -14,5 +14,6 @@
     <div class="home__desc">
         <?php the_content() ?>
     </div>
+    <!-- <p class="home__desc">I'm a front-end developer and college student from the US East Coast. Read more <a href="/me">about me</a>.</p> -->
 </main>
 <?php get_footer(); ?>
