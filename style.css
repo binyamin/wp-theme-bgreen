@@ -15,8 +15,7 @@ Contents
 ========
 Roughly based on Brad Frost's Atomic Design methodology
   1. Patterns (Atoms)
-    * Body text
-    * Headings
+    * Typography
     * Links
     * Code-like (var, code, kbd, pre)
     * Lists (ul, ol)
@@ -42,7 +41,7 @@ Roughly based on Brad Frost's Atomic Design methodology
 
 /* #region (1) Patterns */
 
-/* #region Body text */
+/* #region Typography */
 
 html {
   font-size: 112.5%;
@@ -65,14 +64,6 @@ p {
   margin-bottom: 1rem;
 }
 
-small,
-.text--small {
-  font-size: 0.833rem;
-}
-
-/* #endregion */
-
-/* #region Headings */
 h1,
 h2,
 h3,
@@ -104,6 +95,11 @@ h4 {
 h5,
 .text--larger {
   font-size: 1.2rem;
+}
+
+small,
+.text--small {
+  font-size: 0.833rem;
 }
 
 .header-anchor {
@@ -255,11 +251,11 @@ a[class*="btn"]:hover {
 
 /* #region Code Block */
 
-pre.wp-code-block {
+pre.wp-block-code {
   border-radius: 8px;
 }
 
-pre.wp-code-block code {
+pre.wp-block-code code {
   color: inherit;
   background-color: transparent;
   padding: 0 8px;
